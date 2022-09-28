@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{6E7ABC94-75F1-01EC-0241-54C7FFF7DA4A}|">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/PowerBar.cs">
+    <Files>
+      <File FileName="Assets/scripts/Player.cs" Line="10" Column="11" />
+      <File FileName="Assets/scripts/Camera.cs" Line="16" Column="9" />
+      <File FileName="Assets/scripts/PowerBar.cs" Line="15" Column="5" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Simply golf" expanded="True" selected="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Unity" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d2a504f7-087f-4770-a7c6-bbf986821f28" />
+  <MultiItemStartupConfigurations />
+</Properties>
