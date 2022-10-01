@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         if (moving)
         {
             powerBar.SetActive(false);
-            if (rb.velocity.magnitude <= 0.1f)
+            if (rb.velocity.magnitude < 0.1f)
             {
                 
                 moving = false;
