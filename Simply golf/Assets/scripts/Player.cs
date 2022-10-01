@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public static float minSpeed = 44074.6f;
     public static float speed;
     private Rigidbody rb;
+    private bool moving;
+    
 
     private Vector3 PastPos;
     
@@ -24,19 +26,22 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        StopMoving();   
         Movement();
     }
     void Movement()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!moving)
         {
-            SavePos();
-            rb.isKinematic = false;
-            rb.AddForce(transform.forward * speed * Time.deltaTime);       
-            score++;
-            
-                
+            powerBar.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SavePos();
+                moving = true;
+                rb.isKinematic = false;
+                rb.AddForce(transform.forward * speed * Time.deltaTime);
+                score++;
+            }
         }
     }
     void SavePos()
@@ -46,13 +51,22 @@ public class Player : MonoBehaviour
     void LoadPos()
     {
         rb.isKinematic = true;
+        moving = false;
         transform.position = PastPos;
     }
     void StopMoving()
     {
-        if(rb.velocity.magnitude <= 0.1)
+        if (moving)
         {
-            rb.isKinematic = true;
+            powerBar.SetActive(false);
+            if (rb.velocity.magnitude <= 0.1f)
+            {
+                
+                moving = false;
+                rb.isKinematic = true;
+                
+                Debug.Log("Stopped");
+            }
         }
     }
     private void OnCollisionEnter(Collision collision)
