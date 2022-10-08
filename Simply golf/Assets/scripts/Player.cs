@@ -5,12 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
-    public static float maxSpeed = 400000f;
-    public static float minSpeed = 44074.6f;
+    public static float maxSpeed = 200000f;
+    public static float minSpeed = 24074.6f;
     public static float speed;
     private Rigidbody rb;
     private bool moving;
-    
+    private bool grounded;
 
     private Vector3 PastPos;
     
@@ -28,6 +28,11 @@ public class Player : MonoBehaviour
     {
         StopMoving();   
         Movement();
+        if (rb.velocity.magnitude > 0.1)
+        {
+            moving = true;
+
+        }
     }
     void Movement()
     {
@@ -37,10 +42,11 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 SavePos();
-                moving = true;
                 rb.isKinematic = false;
                 rb.AddForce(transform.forward * speed * Time.deltaTime);
                 score++;
+                powerBar.SetActive(false);
+                
             }
         }
     }
@@ -59,13 +65,17 @@ public class Player : MonoBehaviour
         if (moving)
         {
             powerBar.SetActive(false);
-            if (rb.velocity.magnitude < 0.1f)
+            if (rb.velocity.magnitude < 0.1f && grounded == true)
             {
-                
+                powerBar.SetActive(true);
                 moving = false;
                 rb.isKinematic = true;
-                
                 Debug.Log("Stopped");
+            }
+            else
+            {
+                rb.isKinematic = false;
+                Debug.Log("Keep moving");
             }
         }
     }
@@ -74,6 +84,18 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Water")
         {
             LoadPos();
+        }
+        if(collision.gameObject.tag == "floor")
+        {
+            grounded = true;
+        }
+
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.tag == "floor")
+        {
+            grounded = false;
         }
     }
 
