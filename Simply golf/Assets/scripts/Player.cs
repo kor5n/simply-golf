@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
     private bool grounded;
 
     private Vector3 PastPos;
-    
+
+    public GameObject arrow;
     public GameObject powerBar;
 
     public static int score;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        arrowRotate();
         StopMoving();   
         Movement();
         if (rb.velocity.magnitude > 0.1)
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
         if (!moving)
         {
             powerBar.SetActive(true);
+            arrow.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 SavePos();
@@ -46,6 +49,7 @@ public class Player : MonoBehaviour
                 rb.AddForce(transform.forward * speed * Time.deltaTime);
                 score++;
                 powerBar.SetActive(false);
+                arrow.SetActive(false);
                 
             }
         }
@@ -65,9 +69,11 @@ public class Player : MonoBehaviour
         if (moving)
         {
             powerBar.SetActive(false);
+            arrow.SetActive(false);
             if (rb.velocity.magnitude < 0.1f && grounded == true)
             {
                 powerBar.SetActive(true);
+                arrow.SetActive(true);
                 moving = false;
                 rb.isKinematic = true;
                 Debug.Log("Stopped");
@@ -78,6 +84,14 @@ public class Player : MonoBehaviour
                 Debug.Log("Keep moving");
             }
         }
+    }
+    void arrowRotate()
+    {
+        Vector3 arrowPos = transform.position;
+        arrowPos.y += 2;
+        arrow.transform.position = arrowPos;
+
+        arrow.transform.rotation = transform.rotation;
     }
     private void OnCollisionEnter(Collision collision)
     {
