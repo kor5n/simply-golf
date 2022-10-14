@@ -2,22 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCamera : MonoBehaviour
+public class CameraPivot : MonoBehaviour
 {
     public Transform player;
 
     [Header("aboutCamera")]
-    public Transform rCamera;
+    public Transform rCamera;// real camera
     public float zoomSpeed;
     public float sensetivity;
     private Vector2 turn;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Position();
@@ -26,15 +19,14 @@ public class PlayerCamera : MonoBehaviour
     }
     void Position()
     {
-        transform.position = player.position;
-
+        transform.position = player.position;// camera pivot has the same position as the player
     }
     void Rotation()
     {
         if (!Player.moving)
         {
-            player.localRotation = transform.rotation;
-            if (Input.GetMouseButton(1))
+            player.localRotation = transform.rotation;// you controll the golf balls rotation
+            if (Input.GetMouseButton(1))// right click
             {
                 turn.x += Input.GetAxis("Mouse X") * sensetivity;
                 turn.y += Input.GetAxis("Mouse Y") * sensetivity;
@@ -48,11 +40,11 @@ public class PlayerCamera : MonoBehaviour
         if(!Player.moving)
         {
             
-            if(Input.GetAxis("Mouse ScrollWheel") > 0)
+            if(Input.GetAxis("Mouse ScrollWheel") > 0)// scrolling up
             {
                 rCamera.position = Vector3.MoveTowards(rCamera.position, player.position, zoomSpeed);
             }
-            else if(Input.GetAxis("Mouse ScrollWheel") < 0)
+            else if(Input.GetAxis("Mouse ScrollWheel") < 0)// scrolling down
             {
                 rCamera.position -= transform.forward * zoomSpeed;
             }

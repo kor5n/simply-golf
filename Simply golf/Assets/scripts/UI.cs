@@ -20,7 +20,7 @@ public class UI : MonoBehaviour
     }
     void powerBarSpeed()
     {
-        Player.speed = powerBar.value;
+        Player.speed = powerBar.value;// controlling the players speed
     }
     void ScoreChange()
     {

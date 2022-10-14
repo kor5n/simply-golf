@@ -14,18 +14,15 @@ public class Player : MonoBehaviour
     private float rollingSpeed;
 
     private Vector3 PastPos;
-
+    [Header("Extra Components")]
     public GameObject arrow;
     public GameObject powerBar;
 
     public static int score;
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         arrowRotate();
@@ -57,7 +54,7 @@ public class Player : MonoBehaviour
     }
     void SavePos()
     {
-        PastPos = transform.position;
+        PastPos = transform.position;// saving your position
     }
     void LoadPos()
     {
@@ -76,8 +73,8 @@ public class Player : MonoBehaviour
             {
                 powerBar.SetActive(true);
                 arrow.SetActive(true);
-                moving = false;
-                rb.isKinematic = true;
+                moving = false;// you are not moving(mentaly)
+                rb.isKinematic = true;// you are not moving(physicaly)
                 Debug.Log("Stopped");
             }
             else
@@ -105,7 +102,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "Water")
         {
-            LoadPos();
+            LoadPos();// load the position you have shooten from
         }
         if(collision.gameObject.tag == "floor")
         {
