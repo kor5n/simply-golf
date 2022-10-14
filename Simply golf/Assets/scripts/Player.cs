@@ -5,12 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
-    public static float maxSpeed = 200000f;
-    public static float minSpeed = 24074.6f;
+    public static float maxSpeed = 210000f;
+    public static float minSpeed = 64074.6f;
     public static float speed;
     private Rigidbody rb;
-    private bool moving;
+    public static bool moving;
     private bool grounded;
+    private float rollingSpeed;
 
     private Vector3 PastPos;
 
@@ -68,6 +69,7 @@ public class Player : MonoBehaviour
     {
         if (moving)
         {
+            Rolling();
             powerBar.SetActive(false);
             arrow.SetActive(false);
             if (rb.velocity.magnitude < 0.1f && grounded == true)
@@ -82,6 +84,7 @@ public class Player : MonoBehaviour
             {
                 rb.isKinematic = false;
                 Debug.Log("Keep moving");
+                
             }
         }
     }
@@ -92,6 +95,11 @@ public class Player : MonoBehaviour
         arrow.transform.position = arrowPos;
 
         arrow.transform.rotation = transform.rotation;
+    }
+    void Rolling()
+    {
+        rollingSpeed *= rb.velocity.magnitude;
+        transform.Rotate(rollingSpeed, 0, 0);
     }
     private void OnCollisionEnter(Collision collision)
     {

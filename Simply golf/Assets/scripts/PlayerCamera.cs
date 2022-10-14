@@ -29,14 +29,16 @@ public class PlayerCamera : MonoBehaviour
     }
     void Rotation()
     {
-        player.localRotation = transform.rotation;
-        if(Input.GetMouseButton(1))
+        if (!Player.moving)
         {
-            turn.x += Input.GetAxis("Mouse X") * sensetivity;
-            turn.y += Input.GetAxis("Mouse Y") * sensetivity;
-            transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
+            player.localRotation = transform.rotation;
+            if (Input.GetMouseButton(1))
+            {
+                turn.x += Input.GetAxis("Mouse X") * sensetivity;
+                turn.y += Input.GetAxis("Mouse Y") * sensetivity;
+                transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
 
+            }
         }
-
     }
 }
