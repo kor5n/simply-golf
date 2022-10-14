@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerCamera : MonoBehaviour
 {
     public Transform player;
-    
 
-    [Header("cameraRotation")]
+    [Header("aboutCamera")]
+    public Transform rCamera;
+    public float zoomSpeed;
     public float sensetivity;
     private Vector2 turn;
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class PlayerCamera : MonoBehaviour
     {
         Position();
         Rotation();
+        ZoomCam();
     }
     void Position()
     {
@@ -38,6 +40,21 @@ public class PlayerCamera : MonoBehaviour
                 turn.y += Input.GetAxis("Mouse Y") * sensetivity;
                 transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
 
+            }
+        }
+    }
+    void ZoomCam()
+    {
+        if(!Player.moving)
+        {
+            
+            if(Input.GetAxis("Mouse ScrollWheel") > 0)
+            {
+                rCamera.position = Vector3.MoveTowards(rCamera.position, player.position, zoomSpeed);
+            }
+            else if(Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                rCamera.position -= transform.forward * zoomSpeed;
             }
         }
     }
