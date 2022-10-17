@@ -1,10 +1,14 @@
 ﻿<Properties StartupConfiguration="{6E7ABC94-75F1-01EC-0241-54C7FFF7DA4A}|">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="55b6efc4-93bb-4c2a-908d-6be5386fff86" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/PowerBar.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/CameraPivot.cs">
     <Files>
-      <File FileName="Assets/scripts/Player.cs" Line="10" Column="11" />
-      <File FileName="Assets/scripts/Camera.cs" Line="16" Column="9" />
-      <File FileName="Assets/scripts/PowerBar.cs" Line="15" Column="5" />
+      <File FileName="Assets/scripts/Player.cs" Line="76" Column="61" />
+      <File FileName="Assets/scripts/PlayerCamera.cs" Line="43" Column="22" />
+      <File FileName="Assets/scripts/UI.cs" Line="23" Column="53" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,10 +26,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d2a504f7-087f-4770-a7c6-bbf986821f28" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
