@@ -33,7 +33,8 @@ public class CameraPivot : MonoBehaviour
                 transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
 
             }
-        }
+            
+        }   
     }
     void ZoomCam()
     {
