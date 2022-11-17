@@ -11,6 +11,7 @@ public class CameraPivot : MonoBehaviour
     public float zoomSpeed;
     public float sensetivity;
     private Vector2 turn;
+    public float cameraSpeed = 0;
     void Update()
     {
         Position();
@@ -19,22 +20,40 @@ public class CameraPivot : MonoBehaviour
     }
     void Position()
     {
-        transform.position = player.position;// camera pivot has the same position as the player
+        
+        if (!Player.isDead)
+        {
+            cameraSpeed = 20f;
+            
+        }
+        else if (Player.isDead)
+        {
+            cameraSpeed = 60f;
+            
+
+        }
+        if(transform.position == player.position)
+        {
+            Player.isDead = false;
+        }
+        transform.position = Vector3.MoveTowards(transform.position, player.position, cameraSpeed * Time.deltaTime);
+
+
     }
     void Rotation()
     {
+        if (Input.GetMouseButton(1))// right click
+        {
+            turn.x += Input.GetAxis("Mouse X") * sensetivity;
+            turn.y += Input.GetAxis("Mouse Y") * sensetivity;
+            transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
+
+        }
         if (!Player.moving)
         {
             player.localRotation = transform.rotation;// you controll the golf balls rotation
-            if (Input.GetMouseButton(1))// right click
-            {
-                turn.x += Input.GetAxis("Mouse X") * sensetivity;
-                turn.y += Input.GetAxis("Mouse Y") * sensetivity;
-                transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
-
-            }
-            
-        }   
+        }
+        
     }
     void ZoomCam()
     {

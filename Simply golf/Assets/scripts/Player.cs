@@ -5,19 +5,23 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
-    public static float maxSpeed = 210000f;
-    public static float minSpeed = 64074.6f;
+    public static float maxSpeed = 220000f;
+    public static float minSpeed = 54074.6f;
     public static float speed;
     private Rigidbody rb;
     public static bool moving;
-    private bool grounded;
+    
     private float rollingSpeed;
 
-    private Vector3 PastPos;
+    [Header("Statements")]
+    private bool grounded;
+    public static bool isDead;
+
     [Header("Extra Components")]
     public GameObject arrow;
     public GameObject powerBar;
 
+    private Vector3 PastPos;
     public static int score;
     void Start()
     {
@@ -58,6 +62,8 @@ public class Player : MonoBehaviour
     }
     void LoadPos()
     {
+        isDead = true;
+
         rb.isKinematic = true;
         moving = false;
         transform.position = PastPos;
