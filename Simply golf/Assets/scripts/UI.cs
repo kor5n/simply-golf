@@ -21,6 +21,7 @@ public class UI : MonoBehaviour
     void powerBarSpeed()
     {
         Player.speed = powerBar.value;// controlling the players speed
+        Debug.Log(Player.speed);
     }
     void ScoreChange()
     {

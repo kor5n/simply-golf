@@ -5,15 +5,15 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
-    public static float maxSpeed = 220000f;
-    public static float minSpeed = 54074.6f;
+    public static float minSpeed = 200f;
+    public static float maxSpeed = 2001f;
     public static float speed;
     private Rigidbody rb;
     public static bool moving;
     
     private float rollingSpeed;
 
-    [Header("Statements")]
+    [Header("Conditions")]
     private bool grounded;
     public static bool isDead;
 
@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public static int score;
     void Start()
     {
+        isDead = false;
         rb = GetComponent<Rigidbody>();
     }
     void Update()
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
         arrowRotate();
         StopMoving();   
         Movement();
+        Rolling();
         if (rb.velocity.magnitude > 0.1)
         {
             moving = true;
@@ -48,7 +50,7 @@ public class Player : MonoBehaviour
             {
                 SavePos();
                 rb.isKinematic = false;
-                rb.AddForce(transform.forward * speed * Time.deltaTime, ForceMode.Acceleration);
+                rb.AddForce(transform.forward * speed * Time.deltaTime, ForceMode.Impulse);
                 score++;
                 powerBar.SetActive(false);
                 arrow.SetActive(false);
@@ -72,7 +74,7 @@ public class Player : MonoBehaviour
     {
         if (moving)
         {
-            Rolling();
+            
             powerBar.SetActive(false);
             arrow.SetActive(false);
             if (rb.velocity.magnitude < 0.1f && grounded == true)
@@ -101,8 +103,12 @@ public class Player : MonoBehaviour
     }
     void Rolling()
     {
-        rollingSpeed *= rb.velocity.magnitude;
-        transform.Rotate(rollingSpeed, 0, 0);
+        if (moving)
+        {
+            rollingSpeed *= rb.velocity.magnitude;
+            transform.Rotate(rollingSpeed, 0, 0);
+        }
+        
     }
     private void OnCollisionEnter(Collision collision)
     {

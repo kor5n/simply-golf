@@ -23,19 +23,18 @@ public class CameraPivot : MonoBehaviour
         
         if (!Player.isDead)
         {
-            cameraSpeed = 20f;
-            
+            cameraSpeed = 20f;  
         }
         else if (Player.isDead)
         {
             cameraSpeed = 60f;
-            
-
+            transform.LookAt(player.transform);
         }
         if(transform.position == player.position)
         {
             Player.isDead = false;
         }
+        
         transform.position = Vector3.MoveTowards(transform.position, player.position, cameraSpeed * Time.deltaTime);
 
 
@@ -57,17 +56,15 @@ public class CameraPivot : MonoBehaviour
     }
     void ZoomCam()
     {
-        if(!Player.moving)
+        if(Input.GetAxis("Mouse ScrollWheel") > 0)// scrolling up
         {
-            
-            if(Input.GetAxis("Mouse ScrollWheel") > 0)// scrolling up
-            {
-                rCamera.position = Vector3.MoveTowards(rCamera.position, player.position, zoomSpeed);
-            }
-            else if(Input.GetAxis("Mouse ScrollWheel") < 0)// scrolling down
-            {
-                rCamera.position -= transform.forward * zoomSpeed;
-            }
+            rCamera.position = Vector3.MoveTowards(rCamera.position, transform.position, zoomSpeed);
         }
+        else if(Input.GetAxis("Mouse ScrollWheel") < 0)// scrolling down
+        {
+            rCamera.position -= transform.forward * zoomSpeed;
+        }
+        
     }
+    
 }
