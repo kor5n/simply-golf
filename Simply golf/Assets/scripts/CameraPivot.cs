@@ -50,7 +50,7 @@ public class CameraPivot : MonoBehaviour
         }
         if (!Player.moving)
         {
-            player.localRotation = transform.rotation;// you controll the golf balls rotation
+            player.localRotation = transform.rotation;// you controll the golf ball's rotation
         }
         
     }
