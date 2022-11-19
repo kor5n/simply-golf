@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraPivot : MonoBehaviour
 {
-    public Transform player;
+    public Transform playerTransf;
 
     [Header("aboutCamera")]
     public Transform rCamera;// real camera
@@ -28,14 +28,14 @@ public class CameraPivot : MonoBehaviour
         else if (Player.isDead)
         {
             cameraSpeed = 60f;
-            transform.LookAt(player.transform);
+            transform.LookAt(playerTransf);
         }
-        if(transform.position == player.position)
+        if(transform.position == playerTransf.position)
         {
             Player.isDead = false;
         }
         
-        transform.position = Vector3.MoveTowards(transform.position, player.position, cameraSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, playerTransf.position, cameraSpeed * Time.deltaTime);
 
 
     }
@@ -46,13 +46,11 @@ public class CameraPivot : MonoBehaviour
             turn.x += Input.GetAxis("Mouse X") * sensetivity;
             turn.y += Input.GetAxis("Mouse Y") * sensetivity;
             transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
-
         }
         if (!Player.moving)
         {
-            player.localRotation = transform.rotation;// you controll the golf ball's rotation
+            playerTransf.localRotation = Quaternion.Euler(0, turn.x, 0);
         }
-        
     }
     void ZoomCam()
     {

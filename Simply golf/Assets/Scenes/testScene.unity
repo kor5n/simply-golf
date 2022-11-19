@@ -1685,6 +1685,10 @@ PrefabInstance:
       propertyPath: cameraSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6163893003929475080, guid: a17ceb51bdd734fd2954aa6061698f05, type: 3}
+      propertyPath: playerTransf
+      value: 
+      objectReference: {fileID: 449384662}
     - target: {fileID: 6163893003929475082, guid: a17ceb51bdd734fd2954aa6061698f05, type: 3}
       propertyPath: m_Name
       value: campivot

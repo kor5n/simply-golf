@@ -6,14 +6,14 @@ public class Player : MonoBehaviour
 {
     [Header("Movement")]
     public static float minSpeed = 200f;
-    public static float maxSpeed = 2001f;
+    public static float maxSpeed = 1500f;
     public static float speed;
     private Rigidbody rb;
-    public static bool moving;
     
     private float rollingSpeed;
 
     [Header("Conditions")]
+    public static bool moving;
     private bool grounded;
     public static bool isDead;
 
