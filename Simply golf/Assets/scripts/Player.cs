@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     [Header("Movement")]
     public static float minSpeed = 200f;
-    public static float maxSpeed = 1500f;
+    public static float maxSpeed = 3000f;
     public static float speed;
     private Rigidbody rb;
     
@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public static bool moving;
     private bool grounded;
     public static bool isDead;
+    public static int BoostType;
 
     [Header("Extra Components")]
     public GameObject arrow;
@@ -31,9 +32,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         arrowRotate();
-        StopMoving();   
+
+        StopMoving();
+
         Movement();
+
         Rolling();
+
+        Boost();
         if (rb.velocity.magnitude > 0.1)
         {
             moving = true;
@@ -109,6 +115,29 @@ public class Player : MonoBehaviour
             transform.Rotate(rollingSpeed, 0, 0);
         }
         
+    }
+    void Boost()
+    {
+        if (BoostType == 1)//isZ
+        {
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z + 1f);
+        }
+        else if (BoostType == 2)//isMinusZ
+        {
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z - 1f);
+        }
+        else if (BoostType == 3)//isX
+        {
+            rb.velocity = new Vector3(rb.velocity.x + 1f, rb.velocity.y, rb.velocity.z);
+        }
+        else if (BoostType == 4)//isMinusX
+        {
+            rb.velocity = new Vector3(rb.velocity.x - 1f, rb.velocity.y, rb.velocity.z);
+        }
+        else
+        {
+            Debug.Log("NO BOOST!");
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
