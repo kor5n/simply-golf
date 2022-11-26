@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2341855709664767363}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4955659829135885890}
   m_Father: {fileID: 0}
@@ -52,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8ee8846b27c340248097987ec2076ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d8ee8846b27c340248097987ec2076ff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -98,16 +99,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerModel
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d8ee8846b27c340248097987ec2076ff, type: 3}
+      propertyPath: m_TagString
+      value: player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8ee8846b27c340248097987ec2076ff, type: 3}
---- !u!1 &5732478655739796728 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d8ee8846b27c340248097987ec2076ff, type: 3}
-  m_PrefabInstance: {fileID: 4849447877814788521}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4955659829135885890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8ee8846b27c340248097987ec2076ff, type: 3}
+  m_PrefabInstance: {fileID: 4849447877814788521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5732478655739796728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d8ee8846b27c340248097987ec2076ff, type: 3}
   m_PrefabInstance: {fileID: 4849447877814788521}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &4849447877814788523

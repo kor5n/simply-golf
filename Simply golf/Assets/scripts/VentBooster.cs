@@ -34,33 +34,14 @@ public class VentBooster : MonoBehaviour
         {
             transform.localEulerAngles = new Vector3(0, 0, 90);
         }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.gameObject.tag == "player")
-        {
-            if (isZ)
-            {
-                Player.BoostType = 1;
-            }
-            else if (isMinusZ)
-            {
-                Player.BoostType = 2;
-            }
-            else if (isX)
-            {
-                Player.BoostType = 3;
-            }
-            else if (isMinusX)
-            {
-                Player.BoostType = 4;
-            }
-        }
+    
+
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "player")
         {
+            Debug.Log("Player");
             if (isZ)
             {
                 Player.BoostType = 1;
