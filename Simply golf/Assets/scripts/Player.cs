@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     [Header("Movement")]
     public static float minSpeed = 200f;
-    public static float maxSpeed = 3000f;
+    public static float maxSpeed = 2800f;
     public static float speed;
     private Rigidbody rb;
     
@@ -120,19 +120,19 @@ public class Player : MonoBehaviour
     {
         if (BoostType == 1)//isZ
         {
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z + 1f);
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z + 0.5f);
         }
         else if (BoostType == 2)//isMinusZ
         {
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z - 1f);
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z - 0.5f);
         }
         else if (BoostType == 3)//isX
         {
-            rb.velocity = new Vector3(rb.velocity.x + 1f, rb.velocity.y, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x + 0.5f, rb.velocity.y, rb.velocity.z);
         }
         else if (BoostType == 4)//isMinusX
         {
-            rb.velocity = new Vector3(rb.velocity.x - 1f, rb.velocity.y, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x - 0.5f, rb.velocity.y, rb.velocity.z);
         }
         else
         {
