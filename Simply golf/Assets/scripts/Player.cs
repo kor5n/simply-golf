@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     public static int score;
     void Start()
     {
-        isDead = false;
+        
         rb = GetComponent<Rigidbody>();
     }
     void Update()
@@ -40,11 +40,12 @@ public class Player : MonoBehaviour
         Rolling();
 
         Boost();
-        if (rb.velocity.magnitude > 0.1)
+        if (rb.velocity.magnitude > 0.1f)
         {
             moving = true;
 
         }
+
     }
     void Movement()
     {
@@ -146,6 +147,18 @@ public class Player : MonoBehaviour
             LoadPos();// load the position you have shooten from
         }
         if(collision.gameObject.tag == "floor")
+        {
+            grounded = true;
+        }
+
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Water")
+        {
+            LoadPos();// load the position you have shooten from
+        }
+        if (collision.gameObject.tag == "floor")
         {
             grounded = true;
         }
