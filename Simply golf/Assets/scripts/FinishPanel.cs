@@ -25,6 +25,9 @@ public class FinishPanel : MonoBehaviour
     }
     public void GotoNext()
     {
-        SceneManager.LoadScene("lvl2");
+        int lvl = int.Parse(SceneManager.GetActiveScene().name[^1..]);
+        Debug.Log(lvl + 1);
+        int nextLvl = lvl + 1;
+        SceneManager.LoadScene("lvl" + nextLvl);
     }
 }
