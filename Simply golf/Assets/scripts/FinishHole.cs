@@ -25,6 +25,7 @@ public class FinishHole : MonoBehaviour
         if(other.gameObject.tag == "player")
         {
             Debug.Log("player has finished!");
+
             GameObject fireGreen = Instantiate(green, transform.position, Quaternion.identity);
             GameObject fireRed = Instantiate(red, transform.position, Quaternion.identity);
             GameObject fireBlue = Instantiate(blue, transform.position, Quaternion.identity);
@@ -34,6 +35,8 @@ public class FinishHole : MonoBehaviour
             Destroy(fireBlue, 2);
             Destroy(fireGreen, 2);
             Destroy(fireRed, 2);
+
+            UI.hasFinished = true;
         }
     }
 }

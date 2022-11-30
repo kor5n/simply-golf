@@ -2,21 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
+    public static bool hasFinished;
+    [Header("UI components")]
     public Slider powerBar;
     public Text scoreText;
+    public GameObject FinishPanel;
+    [Header("FinishPanel components")]
+    public Text FinishText;
+
     // Start is called before the first frame update
     private void Start()
     {
         powerBar.maxValue = Player.maxSpeed;
         powerBar.minValue = Player.minSpeed;
+        FinishPanel.SetActive(false);
+        hasFinished = false;
     }
     private void Update()
     {
         powerBarSpeed();
         ScoreChange();
+
+        ShowFinishPanel();
     }
     void powerBarSpeed()
     {
@@ -27,5 +38,11 @@ public class UI : MonoBehaviour
     {
         scoreText.text = Player.score.ToString();
     }
-    
+    void ShowFinishPanel()
+    {
+        if(hasFinished)
+        {
+            FinishPanel.SetActive(true);
+        }
+    }
 }

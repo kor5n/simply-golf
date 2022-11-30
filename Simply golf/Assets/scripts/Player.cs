@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
-    public static float minSpeed = 200f;
-    public static float maxSpeed = 2800f;
+    public static float minSpeed = 300;
+    public static float maxSpeed = 3000;
     public static float speed;
     private Rigidbody rb;
     

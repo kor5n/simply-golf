@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransf: {fileID: 0}
   rCamera: {fileID: 6163893005335574996}
-  zoomSpeed: 0
+  zoomSpeed: 2
   sensetivity: 5
   cameraSpeed: 0
 --- !u!1 &6163893005335575001
