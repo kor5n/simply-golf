@@ -21,10 +21,10 @@ public class FinishPanel : MonoBehaviour
     void Update()
     {
         finishText.text = "Level #"+ SceneManager.GetActiveScene().name[SceneManager.GetActiveScene().name.Length - 1]+" completed!";
+        GotoNext();
     }
     public void GotoNext()
     {
-        string nextLvl = "lvl" + System.Convert.ToInt16(SceneManager.GetActiveScene().name[SceneManager.GetActiveScene().name.Length - 1]+ 1);
-        SceneManager.LoadScene(nextLvl);
+        SceneManager.LoadScene("lvl2");
     }
 }
