@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     [Header("Movement")]
     public static float minSpeed = 13000f;
-    public static float maxSpeed = 63000f;
+    public static float maxSpeed = 70000f;
     public static float speed;
     private Rigidbody rb;
     
