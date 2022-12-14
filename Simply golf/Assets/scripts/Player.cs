@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private bool grounded;
     public static bool isDead;
     public static int BoostType;
+    public static bool instaBoost;
 
     [Header("Extra Components")]
     public GameObject arrow;
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
 
     private Vector3 PastPos;
     public static int score;
+
     void Start()
     {
         
@@ -40,6 +42,8 @@ public class Player : MonoBehaviour
         Rolling();
 
         Boost();
+
+        InstaBoost();
         if (rb.velocity.magnitude > 0.1f)
         {
             moving = true;
@@ -138,6 +142,14 @@ public class Player : MonoBehaviour
         else
         {
             Debug.Log("NO BOOST!");
+        }
+    }
+    void InstaBoost()
+    {
+        if(instaBoost)
+        {
+            rb.velocity = new Vector3(rb.velocity.x * 3, rb.velocity.y * 3, rb.velocity.z * 3);
+            instaBoost = false;
         }
     }
     private void OnCollisionEnter(Collision collision)
