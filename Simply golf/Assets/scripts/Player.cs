@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
-    public static float minSpeed = 13000f;
-    public static float maxSpeed = 70000f;
+    public static float minSpeed = 500f;
+    public static float maxSpeed = 2000f;
     public static float speed;
     private Rigidbody rb;
     
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
             {
                 SavePos();
                 rb.isKinematic = false;
-                rb.AddForce(transform.forward * speed * Time.deltaTime, ForceMode.Acceleration);
+                rb.AddForce(transform.forward * speed, ForceMode.Acceleration);
                 score++;
                 powerBar.SetActive(false);
                 arrow.SetActive(false);
