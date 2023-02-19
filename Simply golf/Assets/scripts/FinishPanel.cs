@@ -27,6 +27,8 @@ public class FinishPanel : MonoBehaviour
         int lvl = int.Parse(SceneManager.GetActiveScene().name[^1..]);
         Debug.Log(lvl + 1);
         int nextLvl = lvl + 1;
+        Player.score = 0;
         SceneManager.LoadScene("lvl" + nextLvl);
+        
     }
 }

@@ -1,14 +1,19 @@
 ﻿<Properties StartupConfiguration="{6E7ABC94-75F1-01EC-0241-54C7FFF7DA4A}|">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="dfaa65c4-36d7-4011-b1db-1c3afa0e724e" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/Player.cs">
     <Files>
-      <File FileName="Assets/scripts/Player.cs" Line="9" Column="38" />
-      <File FileName="Assets/scripts/UI.cs" Line="12" Column="6" />
+      <File FileName="Assets/scripts/Player.cs" Line="9" Column="37" />
+      <File FileName="Assets/scripts/UI.cs" Line="35" Column="1" />
       <File FileName="Assets/scripts/CameraPivot.cs" Line="53" Column="10" />
       <File FileName="Assets/scripts/VentBooster.cs" Line="44" Column="33" />
+      <File FileName="Assets/scripts/finish.cs" Line="15" Column="9" />
+      <File FileName="Assets/scripts/FinishPanel.cs" Line="24" Column="1" />
+      <File FileName="Assets/scripts/speedBoost.cs" Line="25" Column="33" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -26,7 +31,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2a65cd5e-5a7b-4686-b75f-d6874dc41669" />
 </Properties>
