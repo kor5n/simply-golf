@@ -2,18 +2,16 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/FinishPanel.cs">
     <Files>
-      <File FileName="Assets/scripts/Player.cs" Line="9" Column="37" />
+      <File FileName="Assets/scripts/Player.cs" Line="9" Column="36" />
       <File FileName="Assets/scripts/UI.cs" Line="35" Column="1" />
       <File FileName="Assets/scripts/CameraPivot.cs" Line="53" Column="10" />
       <File FileName="Assets/scripts/VentBooster.cs" Line="44" Column="33" />
-      <File FileName="Assets/scripts/finish.cs" Line="15" Column="9" />
-      <File FileName="Assets/scripts/FinishPanel.cs" Line="24" Column="1" />
+      <File FileName="Assets/scripts/FinishPanel.cs" Line="30" Column="26" />
       <File FileName="Assets/scripts/speedBoost.cs" Line="25" Column="33" />
+      <File FileName="Assets/scripts/FinishHole.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -31,5 +29,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2a65cd5e-5a7b-4686-b75f-d6874dc41669" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a72aab00-8aed-4c3b-beea-b1cece3884a9" />
+  <MultiItemStartupConfigurations />
 </Properties>

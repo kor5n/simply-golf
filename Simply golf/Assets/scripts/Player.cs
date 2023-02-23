@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Movement")]
-    public static float minSpeed = 500f;
-    public static float maxSpeed = 2000f;
+    public static float minSpeed = 150;
+    public static float maxSpeed = 1500;
     public static float speed;
     private Rigidbody rb;
     
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         Boost();
 
         InstaBoost();
-        if (rb.velocity.magnitude > 0.1f)
+        if (rb.velocity.magnitude > 1f)
         {
             moving = true;
 
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
             
             powerBar.SetActive(false);
             arrow.SetActive(false);
-            if (rb.velocity.magnitude < 0.1f && grounded == true)
+            if (rb.velocity.magnitude < 1f && grounded == true)
             {
                 powerBar.SetActive(true);
                 arrow.SetActive(true);
