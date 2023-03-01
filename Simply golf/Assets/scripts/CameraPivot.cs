@@ -32,6 +32,10 @@ public class CameraPivot : MonoBehaviour
         }
         if(transform.position == playerTransf.position)
         {
+            if(Player.isDead)
+            {
+                transform.localRotation = playerTransf.localRotation;
+            }
             Player.isDead = false;
         }
         
