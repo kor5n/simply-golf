@@ -31,4 +31,9 @@ public class FinishPanel : MonoBehaviour
         SceneManager.LoadScene("lvl" + nextLvl);
         
     }
+    public void MainMenu()
+    {
+        Player.score = 0;
+        SceneManager.LoadScene(0);
+    }
 }

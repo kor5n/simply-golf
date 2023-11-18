@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
             
             powerBar.SetActive(false);
             arrow.SetActive(false);
-            if (rb.velocity.magnitude < 1f && grounded == true)
+            if (rb.velocity.magnitude < 1.5f && grounded == true)
             {
                 powerBar.SetActive(true);
                 arrow.SetActive(true);
