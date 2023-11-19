@@ -54,6 +54,10 @@ public class MainMenu : MonoBehaviour
     {
         Sensetivity.maxValue = 50f;
         Sensetivity.minValue = 1f;
+        if(CameraPivot.sensetivity >=1)
+        {
+            Sensetivity.value = CameraPivot.sensetivity;
+        }
         BackButtonObj.SetActive(true);
         mainMenu.SetActive(false);
         settings.SetActive(true);
