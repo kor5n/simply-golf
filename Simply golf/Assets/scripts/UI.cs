@@ -11,6 +11,7 @@ public class UI : MonoBehaviour
     public Slider powerBar;
     public Text scoreText;
     public GameObject FinishPanel;
+    public Button BackArrow;
     [Header("FinishPanel components")]
     public Text FinishText;
 
@@ -21,12 +22,13 @@ public class UI : MonoBehaviour
         powerBar.minValue = Player.minSpeed;
         FinishPanel.SetActive(false);
         hasFinished = false;
+        BackArrow.onClick.AddListener(BackToMainMenu);
     }
     private void Update()
     {
         powerBarSpeed();
         ScoreChange();
-
+        
         ShowFinishPanel();
     }
     void powerBarSpeed()
@@ -45,4 +47,11 @@ public class UI : MonoBehaviour
             FinishPanel.SetActive(true);
         }
     }
+    private void BackToMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+        
+
+
 }

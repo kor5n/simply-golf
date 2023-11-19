@@ -9,7 +9,7 @@ public class CameraPivot : MonoBehaviour
     [Header("aboutCamera")]
     public Transform rCamera;// real camera
     public float zoomSpeed;
-    public float sensetivity;
+    public static float sensetivity;
     private Vector2 turn;
     public float cameraSpeed = 0;
     void Update()
@@ -47,6 +47,7 @@ public class CameraPivot : MonoBehaviour
     {
         if (Input.GetMouseButton(1))// right click
         {
+            Debug.Log(sensetivity);
             turn.x += Input.GetAxis("Mouse X") * sensetivity;
             turn.y += Input.GetAxis("Mouse Y") * sensetivity;
             transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
@@ -68,5 +69,12 @@ public class CameraPivot : MonoBehaviour
         }
         
     }
-    
+    private void Start()
+    {
+        if (sensetivity <=0)
+        {
+            sensetivity = 30f;
+        }
+    }
+
 }
