@@ -88,12 +88,12 @@ public class Player : MonoBehaviour
             
             powerBar.SetActive(false);
             arrow.SetActive(false);
-            if (rb.velocity.magnitude < 1.5f && grounded == true)
+            if (rb.velocity.magnitude < 0.5f && grounded == true)
             {
                 powerBar.SetActive(true);
                 arrow.SetActive(true);
-                moving = false;// you are not moving(mentaly)
-                rb.isKinematic = true;// you are not moving(physicaly)
+                moving = false;// you are not moving(mentally)
+                rb.isKinematic = true;// you are not moving(physically)
                 Debug.Log("Stopped");
             }
             else
@@ -118,7 +118,17 @@ public class Player : MonoBehaviour
         {
             rollingSpeed *= rb.velocity.magnitude;
             transform.Rotate(rollingSpeed, 0, 0);
+            if (grounded)
+            {
+                rb.drag = 0.2f;
+            }
+            else
+            {
+                rb.drag = 0.01f;
+            }
+
         }
+        
         
     }
     void Boost()
